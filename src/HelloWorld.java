@@ -1,4 +1,4 @@
-public class MenuManager {
+public class HelloWorld {
 	public static void main (String[] args) {
 		System.out.println("*** Cloth Management System Menu ***");
 		System.out.println("	1. Add Clothes");
@@ -9,4 +9,3 @@ public class MenuManager {
 		System.out.println("Select one number between 1-5 :");
 	}
 }
-// 옷장 관리 시스템
