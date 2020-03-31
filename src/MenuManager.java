@@ -63,7 +63,7 @@ public class MenuManager {
 	}
 	public static void viewClothes() {
 		
-		Scanner input = new Scanner(System.in);
+		Scanner input = new Scanner(System.in); //
 		System.out.print("옷 종류가 무엇인가요? :");
 		String clothName = input.next();
 		System.out.println(clothName);
