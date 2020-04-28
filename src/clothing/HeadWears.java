@@ -9,33 +9,35 @@ public class HeadWears extends Clothing {
 	
 	public void getUserInput(Scanner input) {
 
-		System.out.print("°¡¹æ Á¾·ù°¡ ¹«¾ùÀÎ°¡¿ä? :");
+		System.out.print("ëª¨ì ì¢…ë¥˜ê°€ ë¬´ì—‡ì¸ê°€ìš”? :");
 		String name = input.next();
 		this.setName(name);
 
 		char answer = 'x';
 		while(answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
-			System.out.println("Á¤¸» º»ÀÎÀÇ °¡¹æ ÀÔ´Ï±î? (Y/N) :");
+			System.out.println("ì •ë§ ë³¸ì¸ì˜ ëª¨ì ì…ë‹ˆê¹Œ? (Y/N) :");
 			answer =input.next().charAt(0);
 			if(answer == 'Y' || answer == 'y') {
-				System.out.print("´©±¸ÀÇ °¡¹æÀÔ´Ï±î? :");
+				System.out.print("ëˆ„êµ¬ì˜ ëª¨ìì…ë‹ˆê¹Œ? :");
 				String whos = input.next();
 				this.setWhos(whos);
 				break;
 			}
 			else if(answer == 'n' || answer == 'N') {
-				this.setWhos("");
+				System.out.print("ëˆ„êµ¬ì˜ ëª¨ìì…ë‹ˆê¹Œ? :");
+				String whos = input.next();
+				this.setWhos(whos);
 				break;
 			}
 			else {
 			}
 		}
 
-		System.out.print("¾î´À °èÀı¿¡ ÀûÇÕÇÑ °¡¹æÀÔ´Ï±î? :");
+		System.out.print("ì–´ëŠ ê³„ì ˆì— ì í•©í•œ ëª¨ìì…ë‹ˆê¹Œ? :");
 		String weather = input.next();
 		this.setWeather(weather);
 
-		System.out.print("°¡¹æ °ü¸®½Ã ÁÖÀÇ »çÇ× :");
+		System.out.print("ëª¨ì ê´€ë¦¬ì‹œ ì£¼ì˜ ì‚¬í•­ :");
 		String warning = input.next();
 		this.setWarning(warning);
 	}
