@@ -1,38 +1,128 @@
+package clothing;
+
+import java.util.Scanner;
 
 public class Clothing {
-	
-	String name;
-	String whos;
-	String weather;
-	String warning;
-	
-	public Clothing() { // ±Ùµ¥ ¿Ö ÀÌ·¸°Ô »ý¼ºÀÚ¸¦ ¸î°³¸¦ ¸¸µå´Â°ÅÁö? -> ÇÏ³ª¸¸ ¸¸µé¾îµµ µÈ´Ù ´Ù¸¸ ÆÄ¶ó¹ÌÅÍ¸¦ ¸î°³¸¦ ¹ÞÀ» Áö Á¤ÇÒ ¶§´Â ¹ØÀÇ »ý¼ºÀÚÃ³·³ ¸¸µé¸é µÈ´Ù.
+
+	protected ClothingKind kind = ClothingKind.Cloth;
+	protected String name;
+	protected String whos;
+	protected String weather;
+	protected String warning;
+	//	protectedëŠ” ìžì‹ í´ëž˜ìŠ¤ ì™¸ì— ë‹¤ë¥¸ í´ëž˜ìŠ¤ í˜¹ì€ íŒ¨í‚¤ì§€ì—ì„œëŠ” ì ‘ê·¼ì´ ë¶ˆê°€ëŠ¥í•œ ë³€ìˆ˜ ì„ ì–¸
+
+	public Clothing() { // ê·¼ë° ì™œ ì´ë ‡ê²Œ ìƒì„±ìžë¥¼ ëª‡ê°œë¥¼ ë§Œë“œëŠ”ê±°ì§€? -> í•˜ë‚˜ë§Œ ë§Œë“¤ì–´ë„ ëœë‹¤ ë‹¤ë§Œ íŒŒë¼ë¯¸í„°ë¥¼ ëª‡ê°œë¥¼ ë°›ì„ ì§€ ì •í•  ë•ŒëŠ” ë°‘ì˜ ìƒì„±ìžì²˜ëŸ¼ ë§Œë“¤ë©´ ëœë‹¤.
 	}
 	
-	
-	/*public Clothing(String name, String whos) {
+	public Clothing(ClothingKind kind) {
+		this.kind = kind;
+	}
+
+	public Clothing(String name, String whos) {
 		this.name = name;
-		this.whos = whos; //this(³ªÀÇ °´Ã¼ÀÇ ¶ó´Â ÀÇ¹Ì¸¦ °¡Áü)ÀÇ¹Ì ÇÊµåÀÇ name°ú »ý¼ºÀÚÀÇ name°ú ±¸ºÐÇÏ±â À§ÇØ
+		this.whos = whos; //this(ë‚˜ì˜ ê°ì²´ì˜ ë¼ëŠ” ì˜ë¯¸ë¥¼ ê°€ì§)ì˜ë¯¸ í•„ë“œì˜ nameê³¼ ìƒì„±ìžì˜ nameê³¼ êµ¬ë¶„í•˜ê¸° ìœ„í•´
 	}
-	
-	public Clothing(String name, String whos, String weather, String warning) {
+
+	public Clothing(ClothingKind kind, String name, String whos, String weather, String warning) {
+		this.kind = kind;
 		this.name = name;
 		this.whos = whos;
 		this.weather = weather;
 		this.warning = warning;
-	}*/
-	
-	public void printInfo() { //staticÀº ¸Þ¸ð¸®¿¡ ¹Ù·Î ¿Ã¶ó°¡¼­ Áö±Ý ¸¸µé ÇÊ¿ä°¡ ¾ø¾î¼­ »­
-		System.out.println("name:" + this.name + "whos" + this.whos + "weather:" + this.weather + "warning:" + this.warning);
 	}
-	
+
+	//	Getters/SettersëŠ” ìƒì„±ìž ë°‘ì— ì ì–´ì£¼ëŠ” ê²ƒì´ ì¢‹ë‹¤
+	public ClothingKind getKind() {
+		return kind;
+	}
+
+
+	public void setKind(ClothingKind kind) {
+		this.kind = kind;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getWhos() {
+		return whos;
+	}
+
+
+	public void setWhos(String whos) {
+		this.whos = whos;
+	}
+
+
+	public String getWeather() {
+		return weather;
+	}
+
+
+	public void setWeather(String weather) {
+		this.weather = weather;
+	}
+
+
+	public String getWarning() {
+		return warning;
+	}
+
+
+	public void setWarning(String warning) {
+		this.warning = warning;
+	}
+
+	public void printInfo() {
+		String skind = "none";
+		switch(this.kind) {
+		case Cloth:
+			skind = "Cloth";
+			break;
+		case Accessary:
+			skind = "Accessary";
+			break;
+		case Bag:
+			skind = "Bag";
+			break;
+		case HeadWear:
+			skind = "HeadWear";
+			break;
+		default:
+		}
+		System.out.println("kind :" + skind + " name: " + this.name + " whos: " + this.whos + " weather: " + this.weather + " warning: " + this.warning);
+	}
+
+	public void getUserInput(Scanner input) {
+		System.out.print("ì˜· ì¢…ë¥˜ê°€ ë¬´ì—‡ì¸ê°€ìš”? :");
+		String name = input.next();
+		this.setName(name);
+
+		System.out.print("ëˆ„êµ¬ì˜ ì˜·ìž…ë‹ˆê¹Œ? :");
+		String whos = input.next();
+		this.setWhos(whos);
+
+		System.out.print("ì–´ëŠ ê³„ì ˆì— ì í•©í•œ ì˜· ìž…ë‹ˆê¹Œ? :");
+		String weather = input.next();
+		this.setWeather(weather);
+
+		System.out.print("ì˜· ê´€ë¦¬ì‹œ ì£¼ì˜ ì‚¬í•­ :");
+		String warning = input.next();
+		this.setWarning(warning);
+	}
+
 	/*public void getName(String name){
 		this.name = name;
-		this.name -> ÇÊµå / name -> ÆÄ¶ó¹ÌÅÍ / ÇÊµå¿Í ÆÄ¶ó¹ÌÅÍÀÇ µ¥ÀÌÅÍ ÇüÀº °°¾Æ¾ß ÇÑ´Ù.
+		this.name -> í•„ë“œ / name -> íŒŒë¼ë¯¸í„° / í•„ë“œì™€ íŒŒë¼ë¯¸í„°ì˜ ë°ì´í„° í˜•ì€ ê°™ì•„ì•¼ í•œë‹¤.
 	}*/
-	
-	
-}
-// Áö±Ý ÀÌ°ÍÀ¸·Î´Â clothingmanagement¿Í ¿¬°á°í¸®°¡ ¾ø±â ¶§¹®¿¡ class ÇÏ³ª¸¦ ´õ ¸¸µç´Ù. -> ¿¬°á°í¸®¸¦ ¸¸µé ¶§ ¾î¶² »ý°¢À¸·Î ¸¸µé¾î¾ßÇÒ±î?
 
-	
+
+}
