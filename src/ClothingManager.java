@@ -4,6 +4,7 @@ import java.util.Scanner;
 import clothing.Accessarys;
 import clothing.Bags;
 import clothing.Clothing;
+import clothing.ClothingKind;
 import clothing.HeadWears;
 
 public class ClothingManager {
@@ -25,25 +26,25 @@ public class ClothingManager {
 			System.out.print("종류가 무엇인지 고르세요 1번 ~ 4번 :");
 			kind = input.nextInt();
 			if (kind == 1) {
-				clothing = new Clothing();
+				clothing = new Clothing(ClothingKind.Cloth);
 				clothing.getUserInput(input);
 				clothings.add(clothing);
 				break;
 			}
 			else if (kind == 2) {
-				clothing = new Accessarys();
+				clothing = new Accessarys(ClothingKind.Accessary);
 				clothing.getUserInput(input);
 				clothings.add(clothing);
 				break;
 			}
 			else if (kind == 3) {
-				clothing = new Bags();
+				clothing = new Bags(ClothingKind.Bag);
 				clothing.getUserInput(input);
 				clothings.add(clothing);
 				break;
 			}
 			else if (kind == 4) {
-				clothing = new HeadWears();
+				clothing = new HeadWears(ClothingKind.HeadWear);
 				clothing.getUserInput(input);
 				clothings.add(clothing);
 				break;

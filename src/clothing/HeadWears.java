@@ -3,6 +3,9 @@ package clothing;
 import java.util.Scanner;
 
 public class HeadWears extends Clothing {
+	public HeadWears(ClothingKind kind) {
+		super(kind);
+	}
 	
 	public void getUserInput(Scanner input) {
 

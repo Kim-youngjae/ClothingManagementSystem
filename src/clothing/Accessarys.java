@@ -3,6 +3,9 @@ package clothing;
 import java.util.Scanner;
 
 public class Accessarys extends Clothing {
+	public Accessarys(ClothingKind kind) {
+		super(kind);
+	}
 
 	public void getUserInput(Scanner input) {
 
@@ -21,7 +24,9 @@ public class Accessarys extends Clothing {
 				break;
 			}
 			else if(answer == 'n' || answer == 'N') {
-				this.setWhos("");
+				System.out.print("누구의 악세사리입니까? :");
+				String whos = input.next();
+				this.setWhos(whos);
 				break;
 			}
 			else {
